@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+use App\Http\Controllers\TestController;
+
+Route::get('/', [TestController::class, 'index'])->name('products.index');
+Route::post('/save-or-update', [TestController::class, 'saveOrUpdate'])->name('products.saveOrUpdate');
